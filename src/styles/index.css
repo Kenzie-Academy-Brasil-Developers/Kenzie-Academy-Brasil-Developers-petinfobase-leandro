@@ -1,0 +1,53 @@
+/* Desenvolva a estilização da sua página aqui */
+
+.leftSection {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid aqua; */
+}
+
+.content-leftSection {
+  display: flex;
+  flex-direction: column;
+  width: 385px;
+  height: 473px;
+  gap: 24px;
+}
+
+.rightSection {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--gray600);
+  border-radius: 4px;
+  width: 368px;
+  height: 600px;
+}
+
+.divForm-login {
+  display: flex;
+  flex-direction: column;
+  padding: 44px 24px;
+  gap: 26px;
+}
+
+.divForm-login > form {
+    display: flex;
+    flex-direction: column;
+    /* padding: 44px 24px; */
+    gap: 26px;
+}
+
+form > span {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  /* margin-bottom: 12px; */
+}
+
+.login-right-bottonMessage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}

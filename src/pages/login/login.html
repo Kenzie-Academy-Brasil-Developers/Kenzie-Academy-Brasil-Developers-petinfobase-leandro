@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../../styles/reset.css" />
+    <link rel="stylesheet" href="../../styles/globalStyles.css" />
+    <link rel="stylesheet" href="../../styles/texts.css" />
+    <link rel="stylesheet" href="../../styles/buttons.css" />
+    <link rel="stylesheet" href="../../styles/inputs.css" />
+    <link rel="stylesheet" href="../../styles/grids.css" />
+    <link rel="stylesheet" href="../../styles/index.css" />
+
+    <title>Petinfo - Login</title>
+  </head>
+  <body>
+    <main>
+      <section class="leftSection">
+        <div class="content-leftSection">
+          <h1 class="title-1">Petinfo</h1>
+          <p class="text-1">
+            <small>Amor</small> e <small>carinho</small> por meio do
+            conhecimento
+          </p>
+          <p class="text-2">
+            Todas as informações para melhorar a vida do seu pet em um só lugar
+          </p>
+          <div class="parent">
+            <div class="div1">
+              <img src="../../images/login/Rectangle 2.png" alt="" />
+            </div>
+            <div class="div2">
+              <img src="../../images/login/Rectangle 3.png" alt="" />
+            </div>
+            <div class="div3">
+              <img src="../../images/login/Rectangle 5.png" alt="" />
+            </div>
+            <div class="div4">
+              <img src="../../images/login/Rectangle 4.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="rightSection">
+        <div class="divForm-login">
+          <h2 class="title-2">Login</h2>
+          <form action="">
+            <span>
+              <label class="text-3" for="email">Email</label>
+              <input
+                id="email"
+                class="input-default"
+                type="email"
+                name="email"
+                placeholder="Digite seu email aqui"
+                required
+              />
+            </span>
+            <span>
+              <label class="text-3" for="password">Senha</label>
+              <input
+                id="password"
+                class="input-default"
+                type="password"
+                name="password"
+                placeholder="Digite sua senha aqui"
+                required
+              />
+            </span>
+            <p id="error" class="hidde error-text">A senha está incorreta</p>
+
+            <button class="button-default blue-button">Acessar</button>
+
+            <div class="login-right-bottonMessage">
+              <p class="text-4">Ainda não possui conta?</p>
+              <p class="text-5">
+                Clicando no botão abaixo, você pode se cadastrar rapidamente
+              </p>
+              <button
+                id="button-login"
+                class="button-default transparent-button"
+              >
+                Cadastrar
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>

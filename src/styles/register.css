@@ -1,0 +1,42 @@
+.register-lefttSection {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--gray600);
+  border-radius: 4px;
+  width: 369px;
+  height: 672px;
+  justify-content: center;
+}
+
+.divTitle-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.divForm-register {
+  display: flex;
+  flex-direction: column;
+  padding: 44px 24px;
+  gap: 26px;
+}
+
+form > span {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 26px;
+}
+
+.register-rightSection {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid aqua; */
+}
+
+.content-rightSection {
+  display: flex;
+  flex-direction: column;
+  width: 385px;
+  height: 473px;
+  gap: 24px;
+}
