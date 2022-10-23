@@ -17,7 +17,7 @@ const ul = document.getElementById("ulPosts");
 
 export const verifyPermission = () => {
   const user = getLocalStorage();
-
+  console.log(user);
   if (user == "") {
     window.location.replace("../../pages/login/login.html");
   }
@@ -26,6 +26,8 @@ export const verifyPermission = () => {
 export const renderUserImage = async () => {
   const user = await requestProfile();
   const img = document.querySelectorAll(".UserIMG");
+
+  console.log(user);
 
   img.forEach((element) => (element.src = user.avatar));
 
@@ -74,7 +76,7 @@ export const renderPosts = async () => {
     const dateNow = new Date(post.createdAt).toLocaleDateString( locale, option)
     const dateToUse = dateNow[0].toUpperCase() + dateNow.substr(1)
 
-    console.log(dateToUse);
+    // console.log(dateToUse);
 
     img.src = post.user.avatar;
     name.innerText = post.user.username;
@@ -96,6 +98,9 @@ export const renderPosts = async () => {
 
     h2.innerText = post.title;
     p.innerText = post.content;
+    // p.style = "overflow-wrap: break-word"
+    p.classList = "postBoxText"
+    
     a.innerText = "Acessar publicação";
     // a.href = "";
 

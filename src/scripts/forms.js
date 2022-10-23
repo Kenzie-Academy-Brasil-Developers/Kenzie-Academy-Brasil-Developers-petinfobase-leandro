@@ -23,7 +23,7 @@ export const createNewPostForm = () => {
 
         <span>
         <label for="content" class="text-3">Conteúdo do post</label>
-        <input class="text-3 textarea-modal" placeholder="Desenvolva o conteúdo do post aqui" name="content" required>
+        <textarea class="text-3 textarea-modal" placeholder="Desenvolva o conteúdo do post aqui" name="content" required></textarea>
         </span>
 
         <div class="divButtons">
@@ -69,7 +69,7 @@ export const updateForm = ({ title, content, id }) => {
         
         <span>
         <label for="content" class="text-3">Conteúdo do post</label>
-        <input class="text-3 textarea-modal" placeholder="Digitar Descrição" value="${content}" name="content" required>
+        <input style="overflow-wrap: break-word" class="text-3 textarea-modal" placeholder="Digitar Descrição" value="${content}" name="content" required>
         </span>
         
         <div class="divButtons">
@@ -140,7 +140,7 @@ export const showForm = ({ avatar, username, createdAt, title, content }) => {
 
       <span class="showPostFeet">
       <h2 for="title" class="text-3">${title}</h2>
-      <p class="text-3">${content}</p>
+      <p class="text-3" style="overflow-wrap: break-word">${content}</p>
       </span>
       `
   );

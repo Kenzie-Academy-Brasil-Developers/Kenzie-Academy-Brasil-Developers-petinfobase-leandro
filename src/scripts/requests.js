@@ -137,9 +137,8 @@ export async function requestDeletePost(id) {
       },
     });
 
-    const response = await request.json();
-
-    return response;
+    // const response = await request.json();
+    // return response;
   } catch (err) {
     console.log(err);
   }
