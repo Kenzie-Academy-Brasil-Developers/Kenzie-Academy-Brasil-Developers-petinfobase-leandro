@@ -13,6 +13,9 @@ export async function requestLogin(body) {
       body: JSON.stringify(body),
     });
 
+    //acho q devo colocar o spinner aqui e o checkinputs
+
+
     if (request.ok == true) {
       const response = await request.json();
 
@@ -137,8 +140,20 @@ export async function requestDeletePost(id) {
       },
     });
 
+    if (request.ok) {
+    toast(
+      "Post deletado com sucesso!",
+      `O post selecionado para exlusão foi deletado, a partir de agora não aparecerá no seu feed`
+    );
+
+    setTimeout(() => {
+      window.location.replace("../login/login.html");
+    }, 4000);
     // const response = await request.json();
     // return response;
+  } else {
+    console.log(err);
+  }
   } catch (err) {
     console.log(err);
   }

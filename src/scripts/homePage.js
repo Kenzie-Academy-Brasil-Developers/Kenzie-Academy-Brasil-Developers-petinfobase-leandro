@@ -40,7 +40,6 @@ export const renderUserImage = async () => {
 };
 
 export const renderPosts = async () => {
-  // const newdate = await date()
   const posts = await requestFindAllPost();
 
   ul.innerHTML = "";
@@ -98,11 +97,9 @@ export const renderPosts = async () => {
 
     h2.innerText = post.title;
     p.innerText = post.content;
-    // p.style = "overflow-wrap: break-word"
     p.classList = "postBoxText"
     
     a.innerText = "Acessar publicação";
-    // a.href = "";
 
     a.addEventListener("click", (event) => {
       event.preventDefault();
@@ -129,3 +126,15 @@ export const createNewPost = () => {
     openModal(formCreate);
   });
 };
+
+// export const cancelButton = (event) => {
+//   const cancel = document.querySelector(".cancelButton")
+//   cancel.addEventListener("click", (e) => {
+//     console.log(cancel);
+    
+//     // window.location.replace("../../pages/homePage/homePage.html");
+//   })
+//   // cancel.forEach((button) => console.log(button))
+
+
+// }

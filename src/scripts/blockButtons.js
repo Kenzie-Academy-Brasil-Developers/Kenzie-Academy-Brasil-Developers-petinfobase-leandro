@@ -1,48 +1,48 @@
 const button = document.querySelector("#button-login");
 const inputs = document.querySelectorAll("input");
 
-// export function buttonSpinner() {
-//     const button = document.getElementById("button-login");
-//     button.addEventListener("click", (event) => {
-//       event.preventDefault();
-//       button.innerHTML = "";
+export function buttonSpinner() {
+    const button = document.getElementById("button-login");
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      button.innerHTML = "";
   
-//       const img = document.createElement("img");
-//       img.src = "../../../src/images/spinner.png";
-//       img.alt = "spinner";
-//       img.classList.add("loading");
+      const img = document.createElement("img");
+      img.src = "../../../src/images/spinner.png";
+      img.alt = "spinner";
+      img.classList.add("loading");
   
-//       button.appendChild(img);
+      button.appendChild(img);
   
-//       localStorage.setItem("@petinfo: users", inputs.value);
+      localStorage.setItem("@petinfo: users", inputs.value);
   
-//       login(button);
-//     });
-//   }
+      login(button);
+    });
+  }
 
-// async function login(button) {
-//   const users = await fetch(`https://api.github.com/users/${inputs.value}`)
-//     .then((res) => res.json())
-//     .then((res) => {
-//       button.innerHTML = "";
-//       button.innerText = "Acessar";
+async function login(button) {
+  const users = await fetch(`baseURL`)
+    .then((res) => res.json())
+    .then((res) => {
+      button.innerHTML = "";
+      button.innerText = "Acessar";
 
-//       return res;
-//     });
+      return res;
+    });
 
-//   if (users.message) {
-//     const textError = document.getElementById("error");
+  if (users.message) {
+    const textError = document.getElementById("error");
 
-//     textError.classList.remove("hidde");
+    textError.classList.remove("hidde");
 
-//     return "A senha está incorreta";
-//   }
-//   window.location.assign("../src/pages/login.html");
-//   return users;
-// }
+    return "A senha está incorreta";
+  }
+  window.location.assign("../src/pages/login.html");
+  return users;
+}
 
 function checkInputs(inputs) {
-
+    // const inputs = document.getElementsByTagName("INPUT")
     let verifyInput = true;
   
     if (inputs.value === "") {
@@ -61,4 +61,3 @@ function checkInputs(inputs) {
       }
     });
   }
-  verifyValueInput();

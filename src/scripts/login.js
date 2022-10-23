@@ -1,5 +1,4 @@
 /* Desenvolva seu código aqui */
-// import { verifyValueInput } from "./blockButtons.js";
 import { requestLogin } from "./requests.js";
 
 const buttonRegister = document.querySelector("#button-login");
@@ -26,33 +25,55 @@ export const eventLogin = () => {
     });
 
     const check = await requestLogin(body);
-// console.log(check);
+
+    console.log(check);
     
   });
 };
 
-function buttonToRegister() {
+export function buttonToRegister() {
   buttonRegister.addEventListener("click", () => {
     window.location.replace("../register/register.html");
   });
 }
 
-export function buttonSpinner() {
-  const button = document.getElementById("button-login");
-  button.addEventListener("click", (event) => {
-    event.preventDefault();
-    button.innerHTML = "";
+// export function buttonSpinner() {
+//   const button = document.getElementById("button-login");
+//   button.addEventListener("click", (event) => {
+//     event.preventDefault();
+//     button.innerHTML = "";
 
-    const img = document.createElement("img");
-    img.src = "../../../src/images/spinner.png";
-    img.alt = "spinner";
-    img.classList.add("loading");
+//     const img = document.createElement("img");
+//     img.src = "../../../src/images/spinner.png";
+//     img.alt = "spinner";
+//     img.classList.add("loading");
 
-    button.appendChild(img);
+//     button.appendChild(img);
 
-    // localStorage.setItem("@petinfo: users", inputs.value);
+//     localStorage.setItem("@petinfo: users", inputs.value);
 
-    login(button);
-  });
-}
-buttonToRegister();
+//     login(button);
+//   });
+// }
+
+
+// async function login(button) {
+//   const users = await fetch(`baseURL`)
+//     .then((res) => res.json())
+//     .then((res) => {
+//       button.innerHTML = "";
+//       button.innerText = "Acessar";
+
+//       return res;
+//     });
+
+//   if (users.message) {
+//     const textError = document.getElementById("error");
+
+//     textError.classList.remove("hidde");
+
+//     return "A senha está incorreta";
+//   }
+//   window.location.assign("../src/pages/login.html");
+//   return users;
+// }

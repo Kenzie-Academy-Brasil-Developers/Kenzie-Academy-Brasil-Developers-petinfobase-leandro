@@ -1,4 +1,4 @@
-const openModal = (children) => {
+export const openModal = (children) => {
     const body = document.querySelector("body")
 
     const backgroundContainer = document.createElement("section")
@@ -24,4 +24,3 @@ const openModal = (children) => {
     body.appendChild(backgroundContainer)
 }
 
-export default openModal
