@@ -1,4 +1,5 @@
 /* Desenvolva seu código aqui */
+// import { verifyValueInput } from "./blockButtons.js";
 import { requestLogin } from "./requests.js";
 
 const buttonRegister = document.querySelector("#button-login");
@@ -13,15 +14,19 @@ export const eventLogin = () => {
     const body = {};
 
     elements.forEach((element) => {
+      
       if (element.tagName == "INPUT" && element.value !== "") {
         body[element.id] = element.value;
-        console.log(body);
+
+        // buttonRegister.disabled = true
+        // buttonRegister.classList.remove("disabled")
+      } else {
+        // buttonRegister.disabled = true
       }
     });
-    // console.log("elements");
 
     const check = await requestLogin(body);
-console.log(check);
+// console.log(check);
     
   });
 };
@@ -45,43 +50,9 @@ export function buttonSpinner() {
 
     button.appendChild(img);
 
-    localStorage.setItem("@petinfo: users", inputs.value);
+    // localStorage.setItem("@petinfo: users", inputs.value);
 
     login(button);
   });
 }
 buttonToRegister();
-
-// async function login(button) {
-//   const users = await fetch(`https://api.github.com/users/${inputs.value}`)
-//     .then((res) => res.json())
-//     .then((res) => {
-//       button.innerHTML = "";
-//       button.innerText = "Acessar";
-
-//       return res;
-//     });
-
-//   if (users.message) {
-//     const textError = document.getElementById("error");
-
-//     textError.classList.remove("hidde");
-
-//     return "A senha está incorreta";
-//   }
-//   window.location.assign("../src/pages/login.html");
-//   return users;
-// }
-
-// function checkInputs(inputs) {
-//   let verifyInput = true;
-
-//   if (inputs.value === "") {
-//     verifyInput = false;
-//     inputs.classList.add(inputError);
-//   } else {
-//     inputs.classList.remove(inputError);
-//   }
-
-//   return verifyInput;
-// }

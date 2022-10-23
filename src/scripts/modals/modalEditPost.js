@@ -1,9 +1,9 @@
-import { requestCreateNewPost } from "../requests.js";
+import { requestUpdatePost } from "../requests.js";
 import { renderPosts } from "../homePage.js";
 
 const body = document.querySelector("body");
 
-export const modalAdicionar = () => {
+export const modalUpdate = ({ title, content, id }) => {
   let divPrincipal = document.createElement("div");
   let divForm = document.createElement("div");
   let divHeader = document.createElement("div");
@@ -23,7 +23,7 @@ export const modalAdicionar = () => {
   divHeader.classList.add("divHeader");
   divButtons.classList.add("divButtons");
   form.classList.add("form");
-  form.id = "form";
+  form.id = `${id}`;
   form.addEventListener("submit", (event) => event.preventDefault());
 
   h2.classList.add("title-2");
@@ -36,19 +36,20 @@ export const modalAdicionar = () => {
 
   h2.innerText = "Criando novo post";
   closeButton.innerText = "X";
-
   labelTitle.innerText = "Título do post";
   inputTitle.placeholder = "Digite o título aqui...";
   inputTitle.required = "required";
   inputTitle.name = "title";
+  inputTitle.value = `${title}`;
 
   labelContent.innerText = "Conteúdo do post";
   inputContent.placeholder = "Desenvolva o conteúdo do post aqui";
   inputContent.required = "required";
   inputContent.name = "content";
+  inputContent.value = `${content}`;
 
   buttonCancel.innerText = "Cancelar";
-  buttonAdd.innerText = "Publicar";
+  buttonAdd.innerText = "Salva Alterações";
   buttonAdd.type = "submit";
 
   closeButton.addEventListener("click", (event) => {
@@ -70,27 +71,27 @@ export const modalAdicionar = () => {
   divPrincipal.appendChild(divForm);
 
   body.append(divPrincipal);
-};
 
-function objectModal() {
-  const form = document.querySelector("form");
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
+  function objectModal() {
+    const form = document.querySelector("form");
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
 
-    const inputs = [...event.target];
+      const inputs = [...event.target];
 
-    const body = {};
+      const body = {};
 
-    inputs.forEach(({ name, value }) => {
-      if (name) {
-        body[name] = value;
-      }
+      inputs.forEach(({ name, value }) => {
+        if (name) {
+          body[name] = value;
+        }
+      });
+
+      console.log(body);
+      await requestUpdatePost(body, id);
+      await renderPosts();
     });
 
-    // console.log(body);
-    await requestCreateNewPost(body);
-    await renderPosts();
-  });
-
-  return form;
-}
+    return form;
+  }
+};

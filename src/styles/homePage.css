@@ -72,3 +72,7 @@ ul > li {
     flex-direction: column;
     gap: 20px;
 }
+
+.menuIMG:hover {
+  
+}

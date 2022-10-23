@@ -25,15 +25,13 @@ export async function requestLogin(body) {
 
       inputError.classList.add("inputError");
       pError.classList.remove("hidde");
-      console.log(request);
+      // console.log(request);
       return request;
     }
   } catch (err) {
     console.log(err);
   }
 }
-
-
 
 export async function requestRegister(body) {
   try {
@@ -48,11 +46,14 @@ export async function requestRegister(body) {
     if (request.ok) {
       const response = await request.json();
 
-      toast("Sua conta criada com sucesso!", `Agora você pode acessar os conteúdos utilizando seu usuário e senha na página de login: `);
+      toast(
+        "Sua conta criada com sucesso!",
+        `Agora você pode acessar os conteúdos utilizando seu usuário e senha na página de login: `
+      );
 
-      // setTimeout(() => {
-      //   window.location.replace("../login/login.html");
-      // }, 4000);
+      setTimeout(() => {
+        window.location.replace("../login/login.html");
+      }, 4000);
     } else {
       console.log(err);
     }
@@ -93,6 +94,47 @@ export async function requestCreateNewPost(body) {
         Authorization: `Bearer ${localStorage.token}`,
       },
       body: JSON.stringify(body),
+    });
+
+    const response = await request.json();
+
+    return response;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export async function requestUpdatePost(body, id) {
+  const localStorage = getLocalStorage();
+
+  try {
+    const request = await fetch(baseURL + "posts/" + id, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+      body: JSON.stringify(body),
+    });
+
+    const response = await request.json();
+
+    return response;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export async function requestDeletePost(id) {
+  const localStorage = getLocalStorage();
+
+  try {
+    const request = await fetch(baseURL + "posts/" + id, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.token}`,
+      },
     });
 
     const response = await request.json();

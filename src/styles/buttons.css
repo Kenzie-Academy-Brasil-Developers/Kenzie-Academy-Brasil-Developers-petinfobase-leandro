@@ -26,7 +26,15 @@
   /* height: 38px; */
 }
 
-.blue-button, .blue-button-small:hover {
+.red-button-small {
+  color: var(--gray900);
+  background: var(--alert100);
+  border: 1px solid var(--alert100);
+  border-radius: 4px;
+}
+
+.blue-button,
+.blue-button-small:hover {
   background: var(--brand200);
   border: 1px solid var(--brand200);
 }
@@ -55,4 +63,9 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+a {
+  color: blue;
+  cursor: pointer;
 }

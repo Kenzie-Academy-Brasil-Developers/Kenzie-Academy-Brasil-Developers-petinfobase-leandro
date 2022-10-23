@@ -1,11 +1,19 @@
-// import { requestCreateNewPost } from "./requests.js"; //acho que essa não é aqui (ela cria novos posts na api)
+import {
+  createNewPostForm,
+  updateForm,
+  deleteForm,
+  showForm,
+  logOutForm,
+} from "./forms.js";
 import { getLocalStorage } from "./localStorage.js";
 import { requestProfile } from "./requests.js";
 import { requestFindAllPost } from "./requests.js";
-import { modalAdicionar } from "./modals/modalNewPost.js";
+// import { modalAdicionar } from "./modals/modalNewPost.js";
+// import { modalUpdate } from "./modals/modalEditPost.js";
+// import { modalDelete } from "./modals/modalDeletePost.js";
+import openModal from "./modals.js";
 
 const ul = document.getElementById("ulPosts");
-const buttonCreatePost = document.getElementById("createNewPost");
 
 export const verifyPermission = () => {
   const user = getLocalStorage();
@@ -22,21 +30,15 @@ export const renderUserImage = async () => {
   img.forEach((element) => (element.src = user.avatar));
 
   img.src = user.avatar;
-};
 
-function date() {
-  let data = new Date();
-  let mes = String(data.getMonth() + 1).padStart(2, "0");
-  let ano = data.getFullYear();
-  let dataAtual = `${mes} de ${ano}`;
-  console.log(dataAtual);
-}
-
-export const createNewPost = () => {
-  buttonCreatePost.addEventListener("click", modalAdicionar);
+  // image.addEventListener("click", (element) => {
+  //   const leaveModal = logOutForm(element)
+  //   openModal(leaveModal)
+  // })
 };
 
 export const renderPosts = async () => {
+  // const newdate = await date()
   const posts = await requestFindAllPost();
 
   ul.innerHTML = "";
@@ -67,16 +69,41 @@ export const renderPosts = async () => {
     p.classList.add("text-2");
     a.classList.add("text-3");
 
+    const option = { year: "numeric", month: "long" || "short" || "numeric" };
+    const locale = 'pt-br'
+    const dateNow = new Date(post.createdAt).toLocaleDateString( locale, option)
+    const dateToUse = dateNow[0].toUpperCase() + dateNow.substr(1)
+
+    console.log(dateToUse);
+
     img.src = post.user.avatar;
     name.innerText = post.user.username;
-    date.innerText = "date";
+    date.innerText = dateToUse;
+
     buttonEdit.innerText = "Editar";
+
+    buttonEdit.addEventListener("click", () => {
+      const formUpdate = updateForm(post);
+      openModal(formUpdate);
+    });
+
     buttonDelete.innerText = "Excluir";
+
+    buttonDelete.addEventListener("click", () => {
+      const deletePost = deleteForm(post);
+      openModal(deletePost);
+    });
 
     h2.innerText = post.title;
     p.innerText = post.content;
     a.innerText = "Acessar publicação";
-    a.href = "";
+    // a.href = "";
+
+    a.addEventListener("click", (event) => {
+      event.preventDefault();
+      const showPost = showForm(post);
+      openModal(showPost);
+    });
 
     divUser.append(img, name, date);
     divButtons.append(buttonEdit, buttonDelete);
@@ -86,5 +113,14 @@ export const renderPosts = async () => {
 
     li.appendChild(divPrincipal);
     ul.appendChild(li);
+  });
+};
+
+export const createNewPost = () => {
+  const buttonCreatePost = document.getElementById("createNewPost");
+
+  buttonCreatePost.addEventListener("click", async () => {
+    const formCreate = createNewPostForm();
+    openModal(formCreate);
   });
 };
