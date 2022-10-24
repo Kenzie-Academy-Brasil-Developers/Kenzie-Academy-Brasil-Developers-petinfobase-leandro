@@ -70,11 +70,11 @@ export const renderPosts = async () => {
     divTopCard.classList.add("headerCard");
     divButtons.classList.add("buttonsCard");
     buttonEdit.classList = "button-default transparent-button-small";
-    buttonDelete.classList = "button-default transparent-button-small";
+    buttonDelete.classList = "button-default grey-button";
     divPost.classList.add("divPosts");
     h2.classList.add("title-1");
     p.classList.add("text-2");
-    a.classList.add("text-3");
+    a.classList = "text-3 ancora";
 
     const option = { year: "numeric", month: "long" || "short" || "numeric" };
     const locale = "pt-br";
@@ -106,6 +106,7 @@ export const renderPosts = async () => {
     p.classList = "postBoxText";
 
     a.innerText = "Acessar publicação";
+    a.href = ""
 
     a.addEventListener("click", (event) => {
       event.preventDefault();

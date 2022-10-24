@@ -36,7 +36,7 @@ formulario.insertAdjacentHTML(
       </span>
 
       <div class="divButtons">
-      <button onclick="${cancelButton()}" class="cancelButton button alternativeButton button-default transparent-button-small">Cancelar</button>
+      <button onclick="${cancelButton()}" class="cancelButton button alternativeButton button-default grey-button">Cancelar</button>
       <button class="button button-default blue-button-small" type="submit">Publicar</button>
       </div>
       `
@@ -82,7 +82,7 @@ export const updateForm = ({ title, content, id }) => {
         </span>
         
         <div class="divButtons">
-            <button onclick="" class="button alternativeButton button-default transparent-button-small">Cancelar</button>
+            <button onclick="" class="button alternativeButton button-default grey-button">Cancelar</button>
             <button class="button button-default blue-button-small" type="submit">Salvar alterações</button>
         </div>
     `
@@ -118,7 +118,7 @@ export const deleteForm = (id) => {
         <h4 class="text-delete">Tem certeza que deseja excluir este post?</h4>
         <p clas="text-2">Essa ação não poderá ser desfeita, então pedimos que tenha cautela antes de concluir</p>
         <div class="divButtonsRemove">
-        <button onclick="" class="button alternativeButton button-default transparent-button-small">Cancelar</button>
+        <button onclick="" class="button alternativeButton button-default grey-button">Cancelar</button>
         <button type="submit" class="createButton button-default red-button-small">Sim, excluir este post</button>
         </div>
     `
@@ -216,7 +216,7 @@ export const logOutForm = ({ username }) => {
 //   labelContent.classList.add("text-3");
 //   inputTitle.classList = "text-3 input-default-modal";
 //   inputContent.classList = "text-3 textarea-modal";
-//   buttonCancel.classList = "button-default transparent-button-small";
+//   buttonCancel.classList = "button-default grey-button";
 //   buttonAdd.classList = "button-default blue-button-small";
 
 //   h2.innerText = "Criando novo post";
