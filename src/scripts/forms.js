@@ -134,7 +134,13 @@ export const deleteForm = (id) => {
   return formulario;
 };
 
-export const showForm = ({ avatar, username, createdAt, title, content }) => {
+export const showForm = (post) => {
+
+  const option = { year: "numeric", month: "long" || "short" || "numeric" };
+  const locale = "pt-br";
+  const dateNow = new Date(post.createdAt).toLocaleDateString(locale, option);
+  const dateToUse = dateNow[0].toUpperCase() + dateNow.substr(1);
+
   const formulario = document.createElement("form");
   formulario.classList.add("formbase");
 
@@ -142,14 +148,14 @@ export const showForm = ({ avatar, username, createdAt, title, content }) => {
     "beforeend",
     `
       <span class="showPostHeader">
-      <img src="${avatar}" alt="${username}">
-      <p>${username}</p>
-      <p>${createdAt}</p>
+      <img src="${post.user.avatar}" alt="${post.user.username}">
+      <p>${post.user.username}</p>
+      <p>${dateToUse}</p>
       </span>
 
       <span class="showPostFeet">
-      <h2 for="title" class="text-3">${title}</h2>
-      <p class="text-3" style="overflow-wrap: break-word">${content}</p>
+      <h2 for="title" class="text-3">${post.title}</h2>
+      <p class="text-3" style="overflow-wrap: break-word">${post.content}</p>
       </span>
       `
   );
