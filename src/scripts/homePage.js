@@ -38,11 +38,6 @@ export const renderUserImage = async () => {
   img.forEach((element) => (element.src = user.avatar));
 
   img.src = user.avatar;
-
-  // image.addEventListener("click", (element) => {
-  //   const leaveModal = logOutForm(element)
-  //   openModal(leaveModal)
-  // })
 };
 
 export const renderPosts = async () => {
@@ -97,8 +92,10 @@ export const renderPosts = async () => {
     buttonDelete.innerText = "Excluir";
 
     buttonDelete.addEventListener("click", () => {
-      const deletePost = deleteForm(post);
+      console.log(post.id);
+      const deletePost = deleteForm(post.id);
       openModal(deletePost);
+
     });
 
     h2.innerText = post.title;
