@@ -14,6 +14,12 @@ import { requestFindAllPost } from "./requests.js";
 import openModal from "./modals.js";
 
 const ul = document.getElementById("ulPosts");
+const buttonLogout = document.querySelector(".btnLeave");
+
+buttonLogout.addEventListener("click", () => {
+  localStorage.clear();
+  window.location.replace("../../pages/login/login.html");
+});
 
 export const verifyPermission = () => {
   const user = getLocalStorage();
@@ -71,9 +77,9 @@ export const renderPosts = async () => {
     a.classList.add("text-3");
 
     const option = { year: "numeric", month: "long" || "short" || "numeric" };
-    const locale = 'pt-br'
-    const dateNow = new Date(post.createdAt).toLocaleDateString( locale, option)
-    const dateToUse = dateNow[0].toUpperCase() + dateNow.substr(1)
+    const locale = "pt-br";
+    const dateNow = new Date(post.createdAt).toLocaleDateString(locale, option);
+    const dateToUse = dateNow[0].toUpperCase() + dateNow.substr(1);
 
     // console.log(dateToUse);
 
@@ -97,8 +103,8 @@ export const renderPosts = async () => {
 
     h2.innerText = post.title;
     p.innerText = post.content;
-    p.classList = "postBoxText"
-    
+    p.classList = "postBoxText";
+
     a.innerText = "Acessar publicação";
 
     a.addEventListener("click", (event) => {
@@ -131,10 +137,9 @@ export const createNewPost = () => {
 //   const cancel = document.querySelector(".cancelButton")
 //   cancel.addEventListener("click", (e) => {
 //     console.log(cancel);
-    
+
 //     // window.location.replace("../../pages/homePage/homePage.html");
 //   })
 //   // cancel.forEach((button) => console.log(button))
-
 
 // }
