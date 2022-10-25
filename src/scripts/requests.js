@@ -145,9 +145,10 @@ export async function requestDeletePost(id) {
       },
     });
 
-    const response = await request.json();
-
+    
     if (request.ok) {
+      const response = await request.json();
+
       toast(
         "Post deletado com sucesso!",
         `O post selecionado para exlusão foi deletado, a partir de agora não aparecerá no seu feed`
@@ -156,7 +157,7 @@ export async function requestDeletePost(id) {
       setTimeout(() => {
         window.location.replace("../homePage/homePage.html");
       }, 4000);
-      // const response = await request.json();
+
       // return response;
     } else {
       console.log(err);

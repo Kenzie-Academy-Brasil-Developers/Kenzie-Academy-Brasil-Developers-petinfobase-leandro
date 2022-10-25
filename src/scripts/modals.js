@@ -6,6 +6,7 @@ const openModal = (children) => {
     const closeModalButton = document.createElement("button")
 
     backgroundContainer.classList.add("modal-background") 
+    backgroundContainer.id = "backgroundModal"
     mainConatiner.classList.add("modal-container") 
     closeModalButton.classList.add("modal-close")
     closeModalButton.innerText = "X"

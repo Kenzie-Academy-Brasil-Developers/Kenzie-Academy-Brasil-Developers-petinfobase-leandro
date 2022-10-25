@@ -228,12 +228,15 @@ export const deleteForm = (id) => {
   formulario.append(h2, h4, p, divButtons)
 
   function objectModal() {
+  const backgroundModal = document.getElementById("backgroundModal")
+
   formulario.addEventListener("submit", (event) => {
     event.preventDefault();
 
     requestDeletePost(id);
     renderPosts();
-    window.location.replace("../../pages/homePage/homePage.html");
+    backgroundModal.remove()
+    // window.location.replace("../../pages/homePage/homePage.html");
   });
   return formulario;
   }

@@ -14,6 +14,7 @@ export function buttonSpinner() {
       button.appendChild(img);
     });
   }
+  // buttonSpinner()
 
 function checkInputs(inputs) {
     let verifyInput = true;

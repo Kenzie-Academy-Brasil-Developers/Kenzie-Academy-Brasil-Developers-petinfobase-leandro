@@ -8,9 +8,6 @@ import {
 import { getLocalStorage } from "./localStorage.js";
 import { requestProfile } from "./requests.js";
 import { requestFindAllPost } from "./requests.js";
-// import { modalAdicionar } from "./modals/modalNewPost.js";
-// import { modalUpdate } from "./modals/modalEditPost.js";
-// import { modalDelete } from "./modals/modalDeletePost.js";
 import openModal from "./modals.js";
 
 const ul = document.getElementById("ulPosts");
@@ -23,7 +20,7 @@ buttonLogout.addEventListener("click", () => {
 
 export const verifyPermission = () => {
   const user = getLocalStorage();
-  console.log(user);
+  // console.log(user);
   if (user == "") {
     window.location.replace("../../pages/login/login.html");
   }
@@ -33,7 +30,7 @@ export const renderUserImage = async () => {
   const user = await requestProfile();
   const img = document.querySelectorAll(".UserIMG");
 
-  console.log(user);
+  // console.log(user);
 
   img.forEach((element) => (element.src = user.avatar));
 
@@ -131,14 +128,3 @@ export const createNewPost = () => {
     openModal(formCreate);
   });
 };
-
-// export const cancelButton = (event) => {
-//   const cancel = document.querySelector(".cancelButton")
-//   cancel.addEventListener("click", (e) => {
-//     console.log(cancel);
-
-//     // window.location.replace("../../pages/homePage/homePage.html");
-//   })
-//   // cancel.forEach((button) => console.log(button))
-
-// }

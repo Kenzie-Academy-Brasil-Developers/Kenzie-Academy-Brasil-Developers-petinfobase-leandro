@@ -61,12 +61,6 @@
   background-color: var(--error-bg);
 }
 
-.toast-container > div {
-  /* display: flex;
-  flex-direction: column;
-  gap: 5px; */
-}
-
 .toast-container > div > h3 {
   font-size: var(--font-size-5);
   font-weight: var(--weight-1);
