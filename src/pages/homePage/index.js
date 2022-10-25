@@ -7,3 +7,11 @@ verifyPermission();
 renderUserImage();
 renderPosts();
 createNewPost();
+
+const buttonLogout = document.querySelector("#leave");
+// console.log(buttonLogout);
+
+buttonLogout.addEventListener("click", () => {
+  localStorage.clear();
+  window.location.replace("../../pages/login/login.html");
+});
