@@ -12,6 +12,17 @@
   cursor: pointer;
 }
 
+.button-login {
+  background: rgba(55, 79, 200, 0.4);
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.button-login:enabled {
+  background: var(--brand100);
+  border: 1px solid var(--brand100);
+  color: var(--gray900);
+}
+
 .blue-button {
   background: var(--brand100);
   border: 1px solid var(--brand100);
