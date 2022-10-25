@@ -3,7 +3,7 @@ import {
   updateForm,
   deleteForm,
   showForm,
-  logOutForm,
+  // logOutForm,
 } from "./forms.js";
 import { getLocalStorage } from "./localStorage.js";
 import { requestProfile } from "./requests.js";

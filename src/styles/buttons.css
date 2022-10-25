@@ -106,3 +106,16 @@ color: var(--gray300);
 .ancora:hover {
   text-decoration-line: underline;
 }
+
+#leave {
+  background-image: url(../images/sign-out-alt.png);
+  background-position: left;
+  height: 62px;
+  width: 215px;
+  background-repeat: no-repeat;
+  padding: 20px;
+}
+
+#leave:hover {
+
+}

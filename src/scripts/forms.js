@@ -225,20 +225,20 @@ export const deleteForm = (id) => {
   buttonAdd.addEventListener("click", objectModal);
 
   divButtons.append(buttonCancel, buttonAdd);
-  formulario.append(h2, h4, p, divButtons)
+  formulario.append(h2, h4, p, divButtons);
 
   function objectModal() {
-  const backgroundModal = document.getElementById("backgroundModal")
+    const backgroundModal = document.getElementById("backgroundModal");
 
-  formulario.addEventListener("submit", (event) => {
-    event.preventDefault();
+    formulario.addEventListener("submit", (event) => {
+      event.preventDefault();
 
-    requestDeletePost(id);
-    renderPosts();
-    backgroundModal.remove()
-    // window.location.replace("../../pages/homePage/homePage.html");
-  });
-  return formulario;
+      requestDeletePost(id);
+      renderPosts();
+      backgroundModal.remove();
+      // window.location.replace("../../pages/homePage/homePage.html");
+    });
+    return formulario;
   }
   return formulario;
 };
@@ -266,31 +266,6 @@ export const showForm = (post) => {
       <p class="text-3" style="overflow-wrap: break-word">${post.content}</p>
       </span>
       `
-  );
-
-  formulario.addEventListener("submit", async (event) => {
-    await renderPosts();
-  });
-
-  return formulario;
-};
-
-export const logOutForm = ({ username }) => {
-  const formulario = document.createElement("form");
-  formulario.classList.add("formbase");
-
-  formulario.insertAdjacentHTML(
-    "beforeend",
-    `
-        <span class="showPostHeader">
-        <p>${username}</p>
-        </span>
-  
-        <span class="showPostFeet">
-        <img src="../images/sign-out-alt.png" alt="logout icon">
-        <button for="title" class="text-3">Sair da conta</button>
-        </span>
-        `
   );
 
   formulario.addEventListener("submit", async (event) => {
