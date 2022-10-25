@@ -24,4 +24,3 @@ function checkInputs(inputs) {
       });
     })
   }
-  

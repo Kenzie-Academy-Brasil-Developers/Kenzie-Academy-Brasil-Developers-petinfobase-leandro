@@ -33,9 +33,12 @@ export const verifyPermission = () => {
 
 export const renderUserImage = async () => {
   const user = await requestProfile();
+
+  // console.log(user);
   const img = document.querySelectorAll(".UserIMG");
 
   // console.log(user);
+  localStorage.setItem("userID", user.id)
 
   img.forEach((element) => (element.src = user.avatar));
 
@@ -115,7 +118,10 @@ export const renderPosts = async () => {
     });
 
     divUser.append(img, name, date);
-    divButtons.append(buttonEdit, buttonDelete);
+    if(post.user.id == localStorage.getItem("userID")){
+      divButtons.append(buttonEdit, buttonDelete);
+    }
+
     divTopCard.append(divUser, divButtons);
     divPost.append(h2, p, a);
     divPrincipal.append(divTopCard, divPost);
