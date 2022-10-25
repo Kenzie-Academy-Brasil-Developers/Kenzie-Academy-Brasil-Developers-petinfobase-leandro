@@ -1,15 +1,10 @@
 import toast from "./toast.js";
-// import { buttonSpinner } from "./blockButtons.js"
+import { buttonSpinner } from "./blockButtons.js"
 import { getLocalStorage } from "./localStorage.js";
 
 const baseURL = "http://localhost:3333/";
 
-
 export async function requestLogin(body) {
-  // const emailInput = document.getElementById("email")
-  // const passwordInput = document.getElementById("password")
-  // const buttonLogin = document.getElementById("button-login")
-
   try {
     const request = await fetch(baseURL + "login", {
       method: "POST",
@@ -19,15 +14,13 @@ export async function requestLogin(body) {
       body: JSON.stringify(body),
     });
 
-    //acho q devo colocar o spinner aqui e o checkinputs
-
     if (request.ok == true) {
       const response = await request.json();
 
       localStorage.setItem("user", JSON.stringify(response));
 
-      // buttonSpinner()
-      
+      buttonSpinner()
+
       setTimeout(() => {
       
         window.location.assign("../homePage/homePage.html");
@@ -39,15 +32,6 @@ export async function requestLogin(body) {
 
       inputError.classList.add("inputError");
       pError.classList.remove("hidde");
-      
-      // setTimeout(() => {
-      //   emailInput.value = "";
-      //   passwordInput.value = "";
-      //   buttonLogin.innerText = "Acessar"
-      // }, 3000)
-
-
-
 
       // console.log(request);
       return request;

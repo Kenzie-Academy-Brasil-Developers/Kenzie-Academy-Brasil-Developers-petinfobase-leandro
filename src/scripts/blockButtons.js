@@ -1,8 +1,7 @@
-const button = document.querySelector("#button-login");
 const inputs = document.querySelectorAll("input");
+const button = document.querySelector("#button-access");
 
 export function buttonSpinner() {
-    const button = document.getElementById("button-login");
     button.addEventListener("click", (event) => {
       event.preventDefault();
       button.innerHTML = "";
@@ -13,36 +12,10 @@ export function buttonSpinner() {
       img.classList.add("loading");
   
       button.appendChild(img);
-  
-      localStorage.setItem("@petinfo: users", inputs.value);
-  
-      login(button);
     });
   }
-
-async function login(button) {
-  const users = await fetch(`baseURL`)
-    .then((res) => res.json())
-    .then((res) => {
-      button.innerHTML = "";
-      button.innerText = "Acessar";
-
-      return res;
-    });
-
-  if (users.message) {
-    const textError = document.getElementById("error");
-
-    textError.classList.remove("hidde");
-
-    return "A senha está incorreta";
-  }
-  window.location.assign("../src/pages/login.html");
-  return users;
-}
 
 function checkInputs(inputs) {
-    // const inputs = document.getElementsByTagName("INPUT")
     let verifyInput = true;
   
     if (inputs.value === "") {
@@ -53,11 +26,18 @@ function checkInputs(inputs) {
   }
   
   export function verifyValueInput() {
-    inputs.addEventListener("keyup", function () {
-      if (checkInputs(inputs)) {
-        button.disabled = false;
-      } else {
-        button.disabled = true;
-      }
-    });
+
+    inputs.forEach((input) => {
+      input.addEventListener("keyup", function () {
+
+        if (checkInputs(input)) {
+          // buttonSpinner()
+          button.disabled = false;
+        } else {
+
+          button.disabled = true;
+        }
+      });
+    })
   }
+  

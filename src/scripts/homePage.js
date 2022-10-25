@@ -92,13 +92,14 @@ export const renderPosts = async () => {
     buttonDelete.innerText = "Excluir";
 
     buttonDelete.addEventListener("click", () => {
-      console.log(post.id);
+      // console.log(post.id);
       const deletePost = deleteForm(post.id);
       openModal(deletePost);
 
     });
 
     h2.innerText = post.title;
+    // h2.classList = "postBoxText";
     p.innerText = post.content;
     p.classList = "postBoxText";
 

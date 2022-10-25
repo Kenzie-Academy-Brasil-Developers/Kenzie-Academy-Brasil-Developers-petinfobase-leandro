@@ -1,5 +1,3 @@
-import { createNewPostForm } from "./forms.js"
-
 const openModal = (children) => {
     const body = document.querySelector("body")
 
@@ -19,7 +17,7 @@ const openModal = (children) => {
         }
     })
 
-console.log(createNewPostForm());
+// console.log(createNewPostForm());
 
     mainConatiner.append(closeModalButton)
     mainConatiner.append(children)

@@ -187,7 +187,7 @@ export const updateForm = ({ title, content, id }) => {
 };
 
 export const deleteForm = (id) => {
-  console.log(id);
+  // console.log(id);
   const formulario = document.createElement("form");
   formulario.classList.add("formbase");
 
