@@ -1,10 +1,12 @@
 import toast from "./toast.js";
-import { buttonSpinner } from "./blockButtons.js"
+// import { buttonSpinner } from "./blockButtons.js"
 import { getLocalStorage } from "./localStorage.js";
+import { renderPosts } from "./homePage.js";
 
 const baseURL = "http://localhost:3333/";
 
 export async function requestLogin(body) {
+  
   try {
     const request = await fetch(baseURL + "login", {
       method: "POST",
@@ -15,17 +17,17 @@ export async function requestLogin(body) {
     });
 
     if (request.ok == true) {
+      
+      
       const response = await request.json();
-
-      localStorage.setItem("user", JSON.stringify(response));
-
-      buttonSpinner()
-
       setTimeout(() => {
+  
+        localStorage.setItem("user", JSON.stringify(response));
       
         window.location.assign("../homePage/homePage.html");
       
       }, 3000);
+
     } else {
       const pError = document.getElementById("error");
       const inputError = document.getElementById("password");
@@ -154,9 +156,10 @@ export async function requestDeletePost(id) {
         `O post selecionado para exlusão foi deletado, a partir de agora não aparecerá no seu feed`
       );
 
-      setTimeout(() => {
-        window.location.replace("../homePage/homePage.html");
-      }, 4000);
+      // setTimeout(() => {
+        // window.location.replace("../homePage/homePage.html");
+        renderPosts()
+      // }, 2000);
 
       // return response;
     } else {

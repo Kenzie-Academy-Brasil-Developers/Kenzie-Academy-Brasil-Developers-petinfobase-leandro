@@ -234,7 +234,7 @@ export const deleteForm = (id) => {
       event.preventDefault();
 
       requestDeletePost(id);
-      renderPosts();
+      // renderPosts();
       backgroundModal.remove();
       // window.location.replace("../../pages/homePage/homePage.html");
     });

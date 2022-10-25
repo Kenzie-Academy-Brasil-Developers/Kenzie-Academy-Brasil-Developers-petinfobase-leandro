@@ -1,21 +1,6 @@
 const inputs = document.querySelectorAll("input");
 const button = document.querySelector("#button-access");
 
-export function buttonSpinner() {
-    button.addEventListener("click", (event) => {
-      event.preventDefault();
-      button.innerHTML = "";
-  
-      const img = document.createElement("img");
-      img.src = "../../../src/images/spinner.png";
-      img.alt = "spinner";
-      img.classList.add("loading");
-  
-      button.appendChild(img);
-    });
-  }
-  // buttonSpinner()
-
 function checkInputs(inputs) {
     let verifyInput = true;
   
@@ -32,10 +17,8 @@ function checkInputs(inputs) {
       input.addEventListener("keyup", function () {
 
         if (checkInputs(input)) {
-          // buttonSpinner()
           button.disabled = false;
         } else {
-
           button.disabled = true;
         }
       });

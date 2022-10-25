@@ -18,8 +18,6 @@ const toast = (title, message) => {
   if (title == "DeleteSuccess!") {
     container.classList.add("successToast");
     icon.src = "../../images/check.png";
-
-    a.classList.add("hidde")
   }
 
   const textContainer = document.createElement("div");
