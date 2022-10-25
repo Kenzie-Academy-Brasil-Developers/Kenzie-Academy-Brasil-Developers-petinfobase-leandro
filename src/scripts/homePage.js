@@ -11,12 +11,14 @@ import { requestFindAllPost } from "./requests.js";
 import openModal from "./modals.js";
 
 const ul = document.getElementById("ulPosts");
-const buttonLogout = document.querySelector(".btnLeave");
+const buttonLogout = document.querySelector("#leave");
+console.log(buttonLogout);
 
-buttonLogout.addEventListener("click", () => {
-  localStorage.clear();
-  window.location.replace("../../pages/login/login.html");
-});
+// buttonLogout.addEventListener("click", (event) => {
+//   console.log(event.target);
+//   localStorage.clear();
+//   window.location.assign("../../pages/login/login.html");
+// });
 
 export const verifyPermission = () => {
   const user = getLocalStorage();
