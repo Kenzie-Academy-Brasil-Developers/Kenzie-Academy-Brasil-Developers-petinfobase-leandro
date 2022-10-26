@@ -19,7 +19,9 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 67px 29%;
+  padding: 67px 0px;
+  width: 800px;
+  margin: 0 auto;
 }
 
 header > div {
@@ -41,10 +43,11 @@ ul > li {
   /* text-align: center; */
   align-items: center;
   width: 100%;
+  min-width: 800px;
   height: 64px;
   background: #f8f9fa;
   margin-bottom: 35px;
-  padding: 0px 29%;
+  /* padding: 0px 21%; */
 }
 
 .headerCard {
@@ -132,4 +135,9 @@ ul li:hover > .divLogout {
 .imgBtnLogout {
   width: 14px;
   height: 21px;
+}
+
+.h2-title {
+  width: 800px;
+  margin: 0 auto;
 }
