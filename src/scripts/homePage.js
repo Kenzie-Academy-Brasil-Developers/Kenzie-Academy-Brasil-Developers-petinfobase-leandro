@@ -12,16 +12,16 @@ import openModal from "./modals.js";
 
 const ul = document.getElementById("ulPosts");
 
-export const logoutAPI = () => {
-  const buttonLogout = document.querySelector("#leave");
-  // console.log(buttonLogout);
+// export const logoutAPI = () => {
+//   const buttonLogout = document.getElementById("leave");
+//   console.log(buttonLogout);
   
-  buttonLogout.addEventListener("click", () => {
-    localStorage.clear();
-    window.location.replace("../../pages/login/login.html");
-  });
+//   buttonLogout.addEventListener("click", () => {
+//     localStorage.clear();
+//     window.location.replace("../../pages/login/login.html");
+//   });
 
-}
+// }
 
 export const verifyPermission = () => {
   const user = getLocalStorage();
@@ -139,3 +139,4 @@ export const createNewPost = () => {
     openModal(formCreate);
   });
 };
+
