@@ -12,14 +12,14 @@ export const eventLogin = () => {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    button.innerHTML = "";
+    // button.innerHTML = "";
 
-    const img = document.createElement("img");
-    img.src = "../../../src/images/spinner.png";
-    img.alt = "spinner";
-    img.classList.add("loading");
+    // const img = document.createElement("img");
+    // img.src = "../../../src/images/spinner.png";
+    // img.alt = "spinner";
+    // img.classList.add("loading");
 
-    button.appendChild(img);
+    // button.appendChild(img);
 
     const body = {};
 

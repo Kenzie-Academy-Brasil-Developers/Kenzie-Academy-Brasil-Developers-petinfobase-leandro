@@ -20,8 +20,20 @@ export async function requestLogin(body) {
       
       
       const response = await request.json();
+
+      const button = document.querySelector("#button-access");
+
+      button.innerHTML = "";
+
+      const img = document.createElement("img");
+      img.src = "../../../src/images/spinner.png";
+      img.alt = "spinner";
+      img.classList.add("loading");
+
+      button.appendChild(img);
+
       setTimeout(() => {
-  
+
         localStorage.setItem("user", JSON.stringify(response));
       
         window.location.assign("../homePage/homePage.html");
