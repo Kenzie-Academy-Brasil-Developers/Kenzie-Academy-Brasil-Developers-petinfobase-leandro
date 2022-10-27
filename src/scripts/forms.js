@@ -51,8 +51,9 @@ export const createNewPostForm = () => {
   buttonAdd.type = "submit";
 
   buttonCancel.addEventListener("click", (event) => {
+    const backgroundModal = document.getElementById("backgroundModal");
     event.preventDefault();
-    window.location.replace("../../pages/homePage/homePage.html");
+    backgroundModal.remove();
   });
 
   buttonAdd.addEventListener("click", objectModal);
@@ -70,6 +71,7 @@ export const createNewPostForm = () => {
   );
 
   function objectModal() {
+    const backgroundModal = document.getElementById("backgroundModal");
     const formulario = document.querySelector("form");
     formulario.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -87,9 +89,9 @@ export const createNewPostForm = () => {
       // console.log(body);
       await requestCreateNewPost(body);
       await renderPosts();
+      backgroundModal.remove();
     });
-
-    window.location.replace("../../pages/homePage/homePage.html");
+    // window.location.replace("../../pages/homePage/homePage.html");
     return formulario;
   }
   return formulario;
@@ -142,8 +144,10 @@ export const updateForm = ({ title, content, id }) => {
   buttonAdd.type = "submit";
 
   buttonCancel.addEventListener("click", (event) => {
+    const backgroundModal = document.getElementById("backgroundModal");
     event.preventDefault();
-    window.location.replace("../../pages/homePage/homePage.html");
+    backgroundModal.remove();
+    // window.location.replace("../../pages/homePage/homePage.html");
   });
 
   buttonAdd.addEventListener("click", objectModal);
@@ -213,8 +217,11 @@ export const deleteForm = (id) => {
   buttonCancel.innerText = "Cancelar";
 
   buttonCancel.addEventListener("click", (event) => {
+    // event.preventDefault();
+    // window.location.replace("../../pages/homePage/homePage.html");
+    const backgroundModal = document.getElementById("backgroundModal");
     event.preventDefault();
-    window.location.replace("../../pages/homePage/homePage.html");
+    backgroundModal.remove();
   });
 
   let buttonAdd = document.createElement("button");
