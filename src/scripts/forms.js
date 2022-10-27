@@ -165,6 +165,7 @@ export const updateForm = ({ title, content, id }) => {
   );
 
   function objectModal() {
+    const backgroundModal = document.getElementById("backgroundModal");
     const formulario = document.querySelector("form");
     formulario.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -182,7 +183,8 @@ export const updateForm = ({ title, content, id }) => {
       // console.log(body);
       await requestUpdatePost(body, id);
       await renderPosts();
-      window.location.replace("../../pages/homePage/homePage.html");
+      // window.location.replace("../../pages/homePage/homePage.html");
+      backgroundModal.remove();
     });
 
     return formulario;
