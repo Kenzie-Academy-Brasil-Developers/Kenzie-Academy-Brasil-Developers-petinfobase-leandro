@@ -180,10 +180,8 @@ export const updateForm = ({ title, content, id }) => {
         }
       });
 
-      // console.log(body);
       await requestUpdatePost(body, id);
       await renderPosts();
-      // window.location.replace("../../pages/homePage/homePage.html");
       backgroundModal.remove();
     });
 

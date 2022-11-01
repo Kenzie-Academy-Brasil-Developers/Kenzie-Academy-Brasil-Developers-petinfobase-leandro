@@ -12,15 +12,6 @@ export const eventLogin = () => {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    // button.innerHTML = "";
-
-    // const img = document.createElement("img");
-    // img.src = "../../../src/images/spinner.png";
-    // img.alt = "spinner";
-    // img.classList.add("loading");
-
-    // button.appendChild(img);
-
     const body = {};
 
     elements.forEach((element) => {
